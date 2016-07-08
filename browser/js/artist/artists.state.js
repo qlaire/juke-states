@@ -11,5 +11,15 @@ juke.config(function($stateProvider) {
     url: '/artist/:id',
     templateUrl: 'templates/artist-template.html',
     controller: 'ArtistCtrl'
+  })
+  .state('artistView.albums', {
+    url: '/albums',
+    templateUrl: 'templates/artist-albums-template.html',
+    controller: 'ArtistCtrl'
+  })
+  .state('artistView.songs', {
+    url: '/songs',
+    templateUrl: 'templates/artist-songs-template.html',
+    controller: 'ArtistCtrl'
   });
 });
