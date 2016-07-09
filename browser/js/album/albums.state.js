@@ -2,6 +2,11 @@ juke.config(function($stateProvider) {
   $stateProvider.state('albumList', {
     url: '/albums',
     templateUrl: 'templates/albums-template.html',
+    resolve: {
+      albums: function(AlbumFactory) {
+        return AlbumFactory.fetchAll();
+      }
+    },
     controller: 'AlbumsCtrl'
   });
 });

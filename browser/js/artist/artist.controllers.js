@@ -2,25 +2,14 @@
 
 /* ARTISTS (PLURAL) CONTROLLER */
 
-juke.controller('ArtistsCtrl', function ($scope, $log, ArtistFactory) {
-
-  ArtistFactory.fetchAll()
-  .then(function (artists) {
-    $scope.artists = artists;
-  })
-  .catch($log.error);
-
+juke.controller('ArtistsCtrl', function ($scope, $log, ArtistFactory, artists) {
+  $scope.artists = artists;
 });
 
 /* ARTIST (SINGULAR) CONTROLLER */
 
-juke.controller('ArtistCtrl', function ($scope, $log, ArtistFactory, PlayerFactory, $rootScope, $stateParams) {
-
-  ArtistFactory.fetchById($stateParams.id)
-    .then(function (artist) {
-      $scope.artist = artist;
-    })
-    .catch($log.error);
+juke.controller('ArtistCtrl', function ($scope, $log, ArtistFactory, PlayerFactory, $rootScope, $stateParams, artist) {
+  $scope.artist = artist;
 
   $scope.getCurrentSong = function () {
     return PlayerFactory.getCurrentSong();
