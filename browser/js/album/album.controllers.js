@@ -2,13 +2,9 @@
 
 /* ALBUMS (SINGULAR) CONTROLLER */
 
-juke.controller('AlbumCtrl', function ($scope, $log, PlayerFactory, AlbumFactory, $stateParams) {
+juke.controller('AlbumCtrl', function ($scope, $log, PlayerFactory, AlbumFactory, album) {
 
-  AlbumFactory.fetchById($stateParams.id)
-    .then(function (album) {
-      $scope.album = album;
-    })
-    .catch($log.error);
+  $scope.album = album;
 
   // main toggle
   $scope.toggle = function (song) {

@@ -15,6 +15,11 @@ juke.config(function($stateProvider) {
   $stateProvider.state('albumView', {
     url: '/album/:id',
     templateUrl: 'templates/album-template.html',
+    resolve: {
+      album: function(AlbumFactory, $stateParams) {
+        return AlbumFactory.fetchById($stateParams.id);
+      }
+    },
     controller: 'AlbumCtrl'
   });
 });
